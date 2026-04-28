@@ -21,32 +21,27 @@ public class Main {
         int x = a , y = b , z = c;
     // formating a,b,c in the form of a < b < c
     if(x > y){
-    int t = x;
- x = y ;
- y = t;
-    
+        int t = x; 
+        x = y;
+        y = t;
     }
     if(y>z){
         int t = y;
         y = z;
-        z = t;
-        
+        z = t; 
     }
     if(x > y){
-    int t = x;
- x = y ;
- y = t;
-    
+        int t = x;
+        x = y ;
+        y = t;
     }
-
-
-    out.println(x);
-     out.println(y);
-      out.println(z);
-       out.println(a);
-        out.println(b);
-         out.println(c);
-
+out.println(x);
+out.println(y);
+out.println(z);
+out.println();  
+out.println(a);
+out.println(b);
+out.println(c);
     }
 
     // ---------- math helpers ----------
