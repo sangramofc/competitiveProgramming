@@ -17,31 +17,15 @@ public class Main {
     // int[] ddy = {1,-1,0,0,1,-1,-1,1};
 
     void solve() throws Exception {
-        int a = ni() , b = ni() , c = ni();
-        int x = a , y = b , z = c;
-    // formating a,b,c in the form of a < b < c
-    if(x > y){
-        int t = x; 
-        x = y;
-        y = t;
-    }
-    if(y>z){
-        int t = y;
-        y = z;
-        z = t; 
-    }
-    if(x > y){
-        int t = x;
-        x = y ;
-        y = t;
-    }
-out.println(x);
-out.println(y);
-out.println(z);
-out.println();  
-out.println(a);
-out.println(b);
-out.println(c);
+        int t = ni();
+        for(int i=0;i<t;i++){
+            String s = ns();
+            if (s.length() > 10 ){
+                out.printf("%s%d%s\n",s.charAt(0),(s.length()-2),s.charAt(s.length()-1));
+            } else {
+                out.println(s);
+            }
+        }
     }
 
     // ---------- math helpers ----------
