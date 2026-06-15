@@ -11,10 +11,12 @@ public class Main {
     static class pair implements Comparable<pair> {
         long x;
         long y;
+
         pair(long i, long j) {
             x = i;
             y = j;
         }
+
         public int compareTo(pair p) {
             if (this.x != p.x) {
                 return Long.compare(this.x, p.x);
@@ -22,32 +24,52 @@ public class Main {
                 return Long.compare(this.y, p.y);
             }
         }
+
         public int hashCode() {
             return (x + " " + y).hashCode();
         }
+
         public String toString() {
             return x + " " + y;
         }
+
         public boolean equals(Object o) {
             pair x = (pair) o;
             return (x.x == this.x && x.y == this.y);
         }
     }
 
+    // int[] dx = {0,0,1,-1};
+    // int[] dy = {1,-1,0,0};
+    // int[] ddx = {0,0,1,-1,1,-1,1,-1};
+    // int[] ddy = {1,-1,0,0,1,-1,-1,1};
+
     final int inf = (int) 1e9 + 9;
     final long biginf = (long) 1e18 + 7;
     final long mod = (long) 1e9 + 7;
 
+    public static boolean isPalindrome(String str) {
+        String clean = str.replaceAll("\\s+", "").toLowerCase();
+        String reversed = new StringBuilder(clean).reverse().toString();
+        return clean.equals(reversed);
+    }
+
+
+    // s = "1+1+3+1+3" done
+    // char c [] = {1,+,1,+,3,+,1,+,3}
+
+    // 1+1+3+1+3 -> 1+1+1+3+3
+
+
     void solve() throws Exception {
-           int a = ni() , b = ni();
-    int d = Math.abs(a-b);
-    int sum = 0;
-    
-    for(int i = 1;i<= d/2;i++){
-        sum += i;
-    } 
-    int value = ((d & 1) == 1)?((sum * 2)+(d/2 + 1)) : (2* sum);
-    out.println(value);
+        String s = ns();
+        int l = 0, u = 0;
+        for (char c : s.toCharArray()) {
+            if (c <= 90 && c >= 65) u++;
+            else if (c >= 97 && c <= 122) l++;
+        }
+        out.println((u > l) ? s.toUpperCase() : s.toLowerCase());
+
     }
 
     long pow(long a, long b) {
@@ -137,8 +159,8 @@ public class Main {
         }
         for (int i = 0; i <= n; i++) g[i] = new int[cnt[i]][];
         for (int i = 0; i < e; i++) {
-            g[from[i]][--cnt[from[i]]] = new int[] { to[i], i, 0 };
-            if (f) g[to[i]][--cnt[to[i]]] = new int[] { from[i], i, 1 };
+            g[from[i]][--cnt[from[i]]] = new int[]{to[i], i, 0};
+            if (f) g[to[i]][--cnt[to[i]]] = new int[]{from[i], i, 1};
         }
         return g;
     }
@@ -166,7 +188,7 @@ public class Main {
 
     private int skip() {
         int b;
-        while ((b = readByte()) != -1 && isSpaceChar(b));
+        while ((b = readByte()) != -1 && isSpaceChar(b)) ;
         return b;
     }
 
@@ -213,7 +235,7 @@ public class Main {
     private int ni() {
         int num = 0, b;
         boolean minus = false;
-        while ((b = readByte()) != -1 && !((b >= '0' && b <= '9') || b == '-'));
+        while ((b = readByte()) != -1 && !((b >= '0' && b <= '9') || b == '-')) ;
         if (b == '-') {
             minus = true;
             b = readByte();
@@ -233,7 +255,7 @@ public class Main {
         long num = 0;
         int b;
         boolean minus = false;
-        while ((b = readByte()) != -1 && !((b >= '0' && b <= '9') || b == '-'));
+        while ((b = readByte()) != -1 && !((b >= '0' && b <= '9') || b == '-')) ;
         if (b == '-') {
             minus = true;
             b = readByte();
